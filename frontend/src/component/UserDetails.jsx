@@ -1,9 +1,16 @@
-import React from 'react'
-
+import React, { useEffect } from "react";
+import axios from "axios";
 const UserDetails = () => {
-  return (
-    <div>UserDetails</div>
-  )
-}
+  const getUser = async () => {
+    await axios.get("http://localhost:5000/user").then((res) => {
+      console.log("res");
+    });
+  };
 
-export default UserDetails
+  useEffect(() => {
+    getUser();
+  }, []);
+  return <div>UserDetails</div>;
+};
+
+export default UserDetails;

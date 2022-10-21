@@ -1,12 +1,14 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [login, setLogin] = useState({
     userName: "",
     password: "",
   });
-
+  const navigate = useNavigate();
   const loginDetails = (e) => {
     const { name, value } = e.target;
 
@@ -15,6 +17,7 @@ const Signin = () => {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
+    navigate(`/userdetails`);
   };
 
   return (

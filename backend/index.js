@@ -1,11 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+const cors=require("cors")
 const USER = require('./modals/userSchema')
 app.use(express.json())
 mongoose.connect('mongodb://localhost:27017/dataCompression').then(() => {
   console.log('connected')
 })
+
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.json('pankaj')
@@ -33,11 +36,17 @@ app.post('/login', (req, res) => {
 
   USER.findOne({ userName: userName }).then((saved) => {
     if (saved) {
-      res.json('login successful')
+      res.json(saved)
     } else {
       res.json('user not found')
     }
   })
+})
+
+
+app.get("/user",(req,res)=>{
+
+console.log(req.body)
 })
 
 app.listen('5000', () => {
