@@ -17,7 +17,7 @@ const Signin = () => {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    navigate(`/userdetails`);
+    navigate(`/userdetails/${login.userName}`);
   };
 
   return (

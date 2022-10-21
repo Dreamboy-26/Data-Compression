@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-const cors=require("cors")
+const cors = require('cors')
 const USER = require('./modals/userSchema')
 app.use(express.json())
 mongoose.connect('mongodb://localhost:27017/dataCompression').then(() => {
@@ -43,10 +43,15 @@ app.post('/login', (req, res) => {
   })
 })
 
+app.get('/user/:id', (req, res) => {
+  const user = req.params.id
 
-app.get("/user",(req,res)=>{
 
-console.log(req.body)
+  USER.findOne({ userName: user }).then((saved) => {
+    if (saved) {
+      res.json(saved)
+    } 
+  })
 })
 
 app.listen('5000', () => {
