@@ -4,14 +4,18 @@ const app = express()
 const cors = require('cors')
 const USER = require('./modals/userSchema')
 app.use(express.json())
-mongoose.connect('mongodb+srv://pankajkumar:pankajkumar@cluster0.mgmhbkt.mongodb.net/?retryWrites=true&w=majority').then(() => {
-  console.log('connected')
-})
+mongoose
+  .connect(
+    'mongodb+srv://pankajkumar:pankajkumar@cluster0.mgmhbkt.mongodb.net/?retryWrites=true&w=majority',
+  )
+  .then(() => {
+    console.log('connected')
+  })
 
 app.use(cors())
 
-app.get("/",(req,res)=>{
-  res.send("hello")
+app.get('/', (req, res) => {
+  res.send('hello')
 })
 
 let number = 100
@@ -46,14 +50,13 @@ app.post('/login', (req, res) => {
 app.get('/user/:id', (req, res) => {
   const user = req.params.id
 
-
   USER.findOne({ userName: user }).then((saved) => {
     if (saved) {
       res.json(saved)
-    } 
+    }
   })
 })
 
-app.listen('5000', () => {
+app.listen(process.env.PORT || 6002, () => {
   console.log('server connected to port')
 })

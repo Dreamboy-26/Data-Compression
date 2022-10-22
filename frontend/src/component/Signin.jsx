@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 import "../styles/login.css";
 const Signin = () => {
   const [login, setLogin] = useState({
@@ -18,11 +19,12 @@ const Signin = () => {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
 
-    if(login.userName && login.password) {
-    navigate(`/userdetails/${login.userName}`);
-    }
-    else{
-      console.log("Invalid credentials")
+    if (login.userName && login.password) {
+      axios.post("http://test1kota.herokuapp.com/login", login).then(() => {
+        navigate(`/userdetails/${login.userName}`);
+      });
+    } else {
+      console.log("Invalid credentials");
     }
   };
 

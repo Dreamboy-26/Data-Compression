@@ -8,7 +8,7 @@ const UserDetails = () => {
   const { id } = useParams();
 
   const getUser = async () => {
-    await axios.get(`http://localhost:5000/user/${id}`).then((res) => {
+    await axios.get(`http://test1kota.herokuapp.com/user/${id}`).then((res) => {
       setUser(res.data);
       console.log(res.data);
     });

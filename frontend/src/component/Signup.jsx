@@ -60,7 +60,7 @@ const Signup = () => {
     if (passregex.test(formData.password)) {
       console.log("success");
 
-      axios.post("http://localhost:5000/signup", formData);
+      axios.post("http://test1kota.herokuapp.com/signup", formData);
 
       navigate("/login");
     } else {
