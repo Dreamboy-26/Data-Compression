@@ -11,7 +11,7 @@ mongoose.connect('mongodb://localhost:27017/dataCompression').then(() => {
 app.use(cors())
 
 app.get("/",(req,res)=>{
-  console.log("hello")
+  res.send("hello")
 })
 
 let number = 100
