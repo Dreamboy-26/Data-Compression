@@ -20,12 +20,13 @@ const UserDetails = () => {
   return (
     <>
       <div>
-        <h1>user Details</h1>
-        <div>
-          <img src="" alt=""  className="image" />
+        <h1>User Details</h1>
+        <div className="infoDiv">
+          <img src={user.photoVideo} alt=""  className="image" />
           <h2>{user.name}</h2>
           <h3>{user.userName}</h3>
           <h4>{user.phone}</h4>
+          <h5>{user.password}</h5>
 
         </div>
       </div>

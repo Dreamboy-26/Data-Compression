@@ -46,26 +46,22 @@ const Signup = () => {
         data
       )
       .then((res) => {
-        console.log(res.data.url)
+        console.log(res.data.url);
         setUrl(res.data.url);
-        setFormData({ ...formData, photoVideo:res.data.url });
-  
+        setFormData({ ...formData, photoVideo: res.data.url });
       })
       .catch((err) => console.log(err));
 
     if (!formData.name || !formData.phone || !formData.photoVideo) {
       console.log("all fields are required");
-      console.log(formData)
-    
 
       return;
     }
 
     if (passregex.test(formData.password)) {
       console.log("success");
-      console.log(formData)
+
       axios.post("http://localhost:5000/signup", formData);
-      console.log(formData);
 
       navigate("/login");
     } else {
@@ -128,12 +124,16 @@ const Signup = () => {
             <input type="submit" />
           </div>
         </form>
-        <img
+        
+      </div>
+      <img
           src="https://cdn0.iconfinder.com/data/icons/font-awesome-solid-vol-2/512/image-256.png"
           id="output"
           alt=""
+
+          width="200px"
+          height="200px"
         />
-      </div>
     </>
   );
 };

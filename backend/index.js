@@ -10,18 +10,16 @@ mongoose.connect('mongodb://localhost:27017/dataCompression').then(() => {
 
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.json('pankaj')
-})
+
 
 let number = 100
 
 app.post('/signup', (req, res) => {
+  number++
   const userData = req.body
 
   const name = userData.name.slice(0, 2)
   const pass = userData.password.slice(-4)
-  number++
 
   let uniqueId = name + pass + number
 
