@@ -1,0 +1,32 @@
+.mainDiv{
+
+    width:300px ;
+    margin: auto;
+    margin-top: 200px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.photoVideo{
+margin: auto;
+width: 180px;
+margin-top: 10px;
+margin-bottom: 10px;
+
+
+}
+
+.nameDiv{
+    margin: 10px;
+}
+
+.mobileNumber{
+    margin: 10px;
+}
+
+.passwordDiv{
+    margin: 10px;
+
+}
+

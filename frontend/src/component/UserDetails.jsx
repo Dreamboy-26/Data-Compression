@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import "../styles/user.css"
 const UserDetails = () => {
   const [user, setUser] = useState([]);
   const { id } = useParams();
@@ -21,7 +22,7 @@ const UserDetails = () => {
       <div>
         <h1>user Details</h1>
         <div>
-          <img src="" alt="" />
+          <img src="" alt=""  className="image" />
           <h2>{user.name}</h2>
           <h3>{user.userName}</h3>
           <h4>{user.phone}</h4>
