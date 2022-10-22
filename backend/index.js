@@ -4,7 +4,7 @@ const app = express()
 const cors = require('cors')
 const USER = require('./modals/userSchema')
 app.use(express.json())
-mongoose.connect('mongodb://localhost:27017/dataCompression').then(() => {
+mongoose.connect('mongodb+srv://pankajkumar:pankajkumar@cluster0.mgmhbkt.mongodb.net/?retryWrites=true&w=majority').then(() => {
   console.log('connected')
 })
 
