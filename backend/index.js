@@ -42,11 +42,14 @@ app.post('/signup', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-  const { userName } = req.body
+  const { userName,password } = req.body
 
   USER.findOne({ userName: userName }).then((saved) => {
     if (saved) {
-      res.json(saved)
+      if(saved.password==password){
+        res.json(saved)
+
+      }
     } else {
       res.json('user not found')
     }

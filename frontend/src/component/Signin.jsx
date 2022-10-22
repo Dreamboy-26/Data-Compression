@@ -20,7 +20,7 @@ const Signin = () => {
     e.preventDefault();
 
     if (login.userName && login.password) {
-      axios.post("https://test1kota.herokuapp.com/login", login).then(() => {
+      axios.post("http://localhost:6002/login", login).then(() => {
         navigate(`/userdetails/${login.userName}`);
       });
     } else {
