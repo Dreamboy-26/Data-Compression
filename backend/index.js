@@ -3,6 +3,12 @@ const mongoose = require('mongoose')
 const app = express()
 const cors = require('cors')
 const USER = require('./modals/userSchema')
+const corsOptions ={
+  origin:'http://localhost:3000', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions))
 app.use(express.json())
 mongoose
   .connect(
@@ -12,9 +18,9 @@ mongoose
     console.log('connected')
   })
 
-app.use(cors())
 
 app.get('/', (req, res) => {
+
   res.send('hello')
 })
 
@@ -57,6 +63,6 @@ app.get('/user/:id', (req, res) => {
   })
 })
 
-app.listen(process.env.PORT || 6002, () => {
+app.listen(process.env.PORT || "6002", () => {
   console.log('server connected to port')
 })

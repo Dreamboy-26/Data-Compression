@@ -30,6 +30,10 @@ const Signup = () => {
         setCompressedFile(compressedResult);
       },
     });
+
+    //
+
+   
   };
 
   const handleFormData = (e) => {
@@ -53,19 +57,22 @@ const Signup = () => {
 
     if (!formData.name || !formData.phone || !formData.photoVideo) {
       console.log("all fields are required");
-      console.log(formData)
+      console.log(formData);
       return;
     }
 
     if (passregex.test(formData.password)) {
-      console.log("success");
-
-      axios.post("http://test1kota.herokuapp.com/signup", formData);
-
-      navigate("/login");
+      axios
+        .post("https://test1kota.herokuapp.com/signup", formData)
+        .then((res) => {
+          console.log(res.data);
+          navigate("/login");
+        });
     } else {
       console.log("invalid");
     }
+    console.log(formData);
+
   };
 
   const loadFile = (event) => {
@@ -123,16 +130,14 @@ const Signup = () => {
             <input type="submit" />
           </div>
         </form>
-        
       </div>
       <img
-          src="https://cdn0.iconfinder.com/data/icons/font-awesome-solid-vol-2/512/image-256.png"
-          id="output"
-          alt=""
-
-          width="200px"
-          height="200px"
-        />
+        src="https://cdn0.iconfinder.com/data/icons/font-awesome-solid-vol-2/512/image-256.png"
+        id="output"
+        alt=""
+        width="200px"
+        height="200px"
+      />
     </>
   );
 };
