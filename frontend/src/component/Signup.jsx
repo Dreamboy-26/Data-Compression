@@ -46,15 +46,14 @@ const Signup = () => {
         data
       )
       .then((res) => {
-        console.log(res.data.url);
-        setUrl(res.data.url);
         setFormData({ ...formData, photoVideo: res.data.url });
+        setUrl(res.data.url);
       })
       .catch((err) => console.log(err));
 
     if (!formData.name || !formData.phone || !formData.photoVideo) {
       console.log("all fields are required");
-
+      console.log(formData)
       return;
     }
 
